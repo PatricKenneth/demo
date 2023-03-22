@@ -3,7 +3,6 @@ package br.com.demo.services;
 import org.junit.jupiter.api.Test;
 
 import br.com.demo.DemoApplicationTests;
-import br.com.demo.helpers.EncryptPassword;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -23,7 +22,7 @@ public class PersonServiceTests extends DemoApplicationTests {
     assertThat(storedPerson.getDocumentNumber()).isEqualTo(personDto.getDocumentNumber());
 
     assertThat(storedPerson.getUser().getUsername()).isEqualTo(username);
-    assertThat(storedPerson.getUser().getPassword()).isEqualTo(EncryptPassword.encrypt(password.concat(username)));
+    assertThat(storedPerson.getUser().getPassword()).isEqualTo(this.passwordEncoder.encode(password));
 
   }
 
