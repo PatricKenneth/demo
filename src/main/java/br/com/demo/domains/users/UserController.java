@@ -16,7 +16,7 @@ import io.swagger.v3.oas.annotations.Operation;
 import lombok.extern.slf4j.Slf4j;
 
 @RestController(value = "User Controller")
-@RequestMapping(value = "users")
+@RequestMapping(value = "/api/users/")
 @Slf4j
 public class UserController {
 
@@ -38,7 +38,7 @@ public class UserController {
     }
   }
 
-  @GetMapping(value = "{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+  @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
   @Operation(summary = "Lista Usuário por Id")
   public ResponseEntity<Object> getById(@PathVariable(name = "id") UUID id) {
     try {
