@@ -10,7 +10,7 @@ import java.util.Objects;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import br.com.demo.domains.users.UserEntity;
@@ -33,12 +33,12 @@ public class SecurityService {
 
   private final Properties properties;
   private final UserService userService;
-  private final BCryptPasswordEncoder bCryptPasswordEncoder;
+  private final PasswordEncoder passwordEncoder;
 
-  public SecurityService(Properties properties, UserService userService, BCryptPasswordEncoder bCryptPasswordEncoder) {
+  public SecurityService(Properties properties, UserService userService, PasswordEncoder passwordEncoder) {
     this.properties = properties;
     this.userService = userService;
-    this.bCryptPasswordEncoder = bCryptPasswordEncoder;
+    this.passwordEncoder = passwordEncoder;
   }
 
   public UserDetails getUserDetailsFromAccessToken(String token) {
@@ -49,7 +49,7 @@ public class SecurityService {
   public TokenPair authenticate(String username, String password) {
     UserEntity user = this.userService.getByUsername(username);
 
-    if (user == null || !this.bCryptPasswordEncoder.matches(password, user.getPassword())) {
+    if (user == null || !this.passwordEncoder.matches(password, user.getPassword())) {
       throw new UserInvalidCredentialsException();
     }
 
