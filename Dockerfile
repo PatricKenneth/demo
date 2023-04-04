@@ -2,6 +2,8 @@ FROM openjdk:17.0-slim-buster
 
 WORKDIR /app
 
+RUN apt update && apt install uuid-dev tzdata -y
+
 ENV TZ="America/Sao_Paulo"
 
 ARG PROFILE
