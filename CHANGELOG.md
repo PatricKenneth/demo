@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.4.1](https://github.com/PatricKenneth/demo/compare/v1.4.0...v1.4.1) (2023-04-04)
+
+
+### Bug Fixes
+
+* was fixed the docker:prepare and the docker:push scripts for windows ([c932a32](https://github.com/PatricKenneth/demo/commit/c932a32129f9e235848c07c17355bdbc030dde69))
+
 ## [1.4.0](https://github.com/PatricKenneth/demo/compare/v1.3.0...v1.4.0) (2023-04-04)
 
 
