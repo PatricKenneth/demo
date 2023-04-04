@@ -1,10 +1,14 @@
 server:
   port: 8080
+  servlet:
+    context-path: /v1/
   
 springdoc:
   api-docs:
     path: /api-docs
   swagger-ui: 
+    path: /api-docs/swagger-ui-custom.html
+    disable-swagger-default-url: true
     defaultModelsExpandDepth: -1
 
 spring:

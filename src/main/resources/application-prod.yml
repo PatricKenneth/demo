@@ -6,10 +6,19 @@ spring:
     username: postgres
     password: root
   jpa:
-    show-sql: true
+    show-sql: false
     hibernate:
       ddl-auto: none
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
         format_sql: true
+
+app:
+  api-docs:
+    username: user-docs
+    password: 1q2w3e4r5t
+  access-token:
+    duration: 86400 # 24 horas
+  refresh-token:
+    duration: 31536000 # 1 ano

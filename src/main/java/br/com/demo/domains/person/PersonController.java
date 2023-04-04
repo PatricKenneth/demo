@@ -15,11 +15,13 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.demo.domains.person.dto.CreatePersonDto;
 import br.com.demo.helpers.ResponseBuilder;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import lombok.extern.slf4j.Slf4j;
 
 @RestController(value = "Person Controller")
-@RequestMapping(value = "persons")
+@RequestMapping(value = "/api/persons/")
 @Slf4j
+@SecurityRequirement(name = "bearerAuth")
 public class PersonController {
 
   private final PersonService personService;
@@ -42,7 +44,7 @@ public class PersonController {
     }
   }
 
-  @GetMapping(value = "{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+  @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
   @Operation(summary = "Recupera Cadastro por Id")
   public ResponseEntity<Object> getById(@PathVariable(name = "id") UUID id) {
     try {

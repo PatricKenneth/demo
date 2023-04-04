@@ -19,13 +19,18 @@ public class UserServiceImpl implements UserService {
   }
 
   @Override
-  public List<UserEntity> getAll() throws Exception {
+  public List<UserEntity> getAll() {
     return this.userRepository.findAll();
   }
 
   @Override
   public UserEntity getById(UUID id) {
     return this.userRepository.findById(id).get();
+  }
+
+  @Override
+  public UserEntity getByUsername(String username) {
+    return this.userRepository.findByUsername(username).orElse(null);
   }
 
 }

@@ -21,4 +21,8 @@ public class ResponseBuilder {
     return new ResponseEntity<>(body, HttpStatus.NOT_FOUND);
   }
 
+  public static ResponseEntity<Object> UNAUTHORIZED(Object body) {
+    return new ResponseEntity<>(body, HttpStatus.UNAUTHORIZED);
+  }
+
 }

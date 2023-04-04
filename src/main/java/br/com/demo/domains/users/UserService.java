@@ -5,8 +5,10 @@ import java.util.UUID;
 
 public interface UserService {
 
-  List<UserEntity> getAll() throws Exception;
+  List<UserEntity> getAll();
 
   UserEntity getById(UUID id);
+
+  UserEntity getByUsername(String username);
 
 }
