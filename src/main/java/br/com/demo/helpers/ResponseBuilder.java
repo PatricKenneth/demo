@@ -25,4 +25,8 @@ public class ResponseBuilder {
     return new ResponseEntity<>(body, HttpStatus.UNAUTHORIZED);
   }
 
+  public static ResponseEntity<Object> FORBIDDEN(Object body) {
+    return new ResponseEntity<>(body, HttpStatus.FORBIDDEN);
+  }
+
 }
