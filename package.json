@@ -17,7 +17,7 @@
     "release-macLinux:version": "git pull origin && standard-version && npm run mvn-macLinux:setversion && git push origin && git push origin --tags && npm run release-macLinux:finish",
     "release-macLinux:finish": "npm run git-flow-update && git flow release finish -n $npm_package_version && npm run git-flow-push",
     "docker:prepare-macLinux": "mvn clean install -DskipTests && mvn dockerfile:build",
-    "docker:push-macLinux": "npm run docker:prepare-macLinux && docker push 808496668831.dkr.ecr.sa-east-1.amazonaws.com/$npm_package_name:$npm_package_version"
+    "docker:push-macLinux": "npm run docker:prepare-macLinux && docker push pkenneth/repo-pkenneth:$npm_package_name-$npm_package_version"
   },
   "repository": {
     "type": "git",
