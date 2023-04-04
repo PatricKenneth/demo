@@ -16,8 +16,8 @@
     "hotfix-macLinux:finish": "npm run git-flow-update && git flow hotfix finish -n $npm_package_version && npm run git-flow-push",
     "release-macLinux:version": "git pull origin && standard-version && npm run mvn-macLinux:setversion && git push origin && git push origin --tags && npm run release-macLinux:finish",
     "release-macLinux:finish": "npm run git-flow-update && git flow release finish -n $npm_package_version && npm run git-flow-push",
-    "docker:prepare-macLinux": "mvn clean install -DskipTests && mvn dockerfile:build",
-    "docker:push-macLinux": "npm run docker:prepare-macLinux && docker push pkenneth/repo-pkenneth:$npm_package_name-$npm_package_version"
+    "docker:prepare": "mvn clean install -DskipTests && mvn dockerfile:build",
+    "docker:push": "npm run docker:prepare && docker push pkenneth/repo-pkenneth:%npm_package_name%-%npm_package_version%"
   },
   "repository": {
     "type": "git",
