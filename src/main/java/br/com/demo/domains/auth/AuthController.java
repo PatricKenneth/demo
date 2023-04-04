@@ -1,4 +1,4 @@
-package br.com.demo.domains.person.auth;
+package br.com.demo.domains.auth;
 
 import javax.validation.Valid;
 
